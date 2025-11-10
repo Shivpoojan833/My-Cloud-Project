@@ -1,0 +1,12 @@
+# Compiled Python files
+*.pyc
+
+# Python virtual environment
+venv/
+__pycache__/
+
+# Your model artifacts
+*.pkl
+
+# Your datasets
+*.csv
