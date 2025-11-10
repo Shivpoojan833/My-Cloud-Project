@@ -33,8 +33,8 @@ The text data (`cleaned_chatbot_data.csv`) is cleaned and normalized using a cus
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
-    cd YOUR_REPO_NAME
+    git clone [https://github.com/Shivpoojan833/Intent-Classification-Chatbot.git](https://github.com/Shivpoojan833/Intent-Classification-Chatbot.git)
+    cd Intent-Classification-Chatbot
     ```
 
 2.  **Create a virtual environment:**
