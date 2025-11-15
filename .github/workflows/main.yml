@@ -33,11 +33,23 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPO_NAME }} # The name of your ECR repo
-        IMAGE_TAG: ${{ github.sha }} # Use the unique commit ID as the tag
+        ECR_REPOSITORY: ${{ secrets.AWS_ECR_REPO_NAME }}
+        IMAGE_TAG: ${{ github.sha }} # The unique commit ID
       run: |
+        # Build the image
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        
+        # --- NEW LINE ---
+        # Also tag this exact same image as 'latest'
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        
+        # Push the unique tag (good for rollbacks)
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        
+        # --- NEW LINE ---
+        # Also push the 'latest' tag (this is what App Runner is watching)
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
     # 5. This is the new part for Elastic Beanstalk (if you're using it)
