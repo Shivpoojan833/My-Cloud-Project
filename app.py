@@ -119,8 +119,8 @@ def portfolio():
             <p>AI, Cybersecurity, and Data-Driven Solutions</p>
             <div class="links">
                 <a href="mailto:mvmoraishivpujan12b@gmail.com">Email</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Personal Portfolio</a>
+                <a href="https://www.linkedin.com/in/shivpoojan-tiwari-3030ba379/">LinkedIn</a>
+                <a href="https://shivpoojan833.github.io/html-portfolio/">Personal Portfolio</a>
             </div>
         </header>
 
@@ -207,3 +207,4 @@ def portfolio():
 if __name__ == '__main__':
     # We are still running on port 80 as defined in the Dockerfile
     app.run(host='0.0.0.0', port=80)
+
